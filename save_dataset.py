@@ -2,7 +2,7 @@ import os
 import numpy as np
 from image_engine import engine64x, engine128x
 
-# change actually path images
+# change actually own path for images
 
 path_fotos = "/home/abdux/tmp/images/"
 
@@ -21,7 +21,7 @@ imgsTST = []
 
 
 
-print("Veriler alınıyor")
+print("getting data")
 COUNTER = 0
 for cat in photos_cat:
     path_cat = path_fotos + cat
@@ -39,7 +39,6 @@ for cat in photos_cat:
         print(path)
         if path.endswith(".png"):
             if COUNTER <= TRAIN_LENGHT:
-                # Burada engine 64x fonksiyonu kullanılırsa resimler 64x64 olarak kaydeder
                 photo_tr = engine128x(path)
                 imgsTR.append([photo_tr, catnum])
 
