@@ -28,7 +28,7 @@ train_labels = []
 test_images = []
 test_labels = []
 
-
+#You should change own path for arrays
 train_data = np.load("images_arrays/TRAIN128x128.npy", allow_pickle=True)
 test_data = np.load("images_arrays/TEST128x128.npy", allow_pickle=True)
 
@@ -107,12 +107,14 @@ test_images = test_images.astype('float32') * 255
 test_images = test_images.astype('uint8')
 test_images = test_images.reshape((LENGHT_TEST, INPUT_SHAPE_X, INPUT_SHAPE_Y))
 
-#file = "LR-"+str(LR)+"-ACC-"+str(test_acc*100)+"-batch-"+str(BATCH_SIZE)+"-regu-"+str(regu)+"INP-"+str(INPUT_SHAPE_X)+".png"
-#plot_model(model, to_file=file, show_shapes=True, expand_nested=True, dpi=420)
+#For saving models
 
-#model.save(file.replace('.png', '_MODEL'), overwrite=True)
+file = "LR-"+str(LR)+"-ACC-"+str(test_acc*100)+"-batch-"+str(BATCH_SIZE)+"-regu-"+str(regu)+"INP-"+str(INPUT_SHAPE_X)+".png"
+plot_model(model, to_file=file, show_shapes=True, expand_nested=True, dpi=420)
+
+model.save(file.replace('.png', '_MODEL'), overwrite=True)
 
 now = datetime.now()
 time_out = now.strftime("%H:%M:%S")
-
+#calculation time (optional)
 print("TIME IN:{}\tTIME OUT:{}".format(time_in, time_out))
